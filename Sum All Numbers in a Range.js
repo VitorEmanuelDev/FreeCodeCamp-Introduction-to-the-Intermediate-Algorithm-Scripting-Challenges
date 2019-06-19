@@ -1,20 +1,19 @@
 function sumAll(arr) {
-let first, last;
 
-if (arr[0] > arr[1]){
-first = arr[1];
-last = arr[0];
-} else {
-first = arr[0];
-last = arr[1]; 
-}
+//spread operator (...arr) converts an array into a list through destructuring ...[1,4] => 1,4
 
-let total = 0;
+//Math.min callsback the smallest number on a list. It doesn't work with arrays, and that's why we needed to destructure
 
-for(let i = first; i <= last; i++){
-  total = total + i;
-}
 
+const first = Math.min(...arr);
+const last = Math.max(...arr);
+
+  let total = 0;
+
+  for (let i = first; i <= last; i++) {
+    total += i;
+  }
+  
   return total;
 }
 
