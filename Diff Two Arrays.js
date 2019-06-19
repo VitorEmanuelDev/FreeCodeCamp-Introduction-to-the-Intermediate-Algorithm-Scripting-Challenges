@@ -1,37 +1,17 @@
 function diffArray(arr1, arr2) {
-  let newArr = [];
-  
-  for(let i = 0; i < arr1.length; i++){
-    let item1 = arr1[i];
-    let notFound = true;
-    for(let j = 0; j < arr2.length; j++){
-      let item2 = arr2[j];
+  var newArr = [];
 
-      if (item1 === item2){
-        notFound = false;
-      }
-    }
-    if(notFound === true) {
-      newArr.push(item1);
-    }
-  }
+const diff1 = arr1.filter(function(num) {
+  if(!arr2.includes(num)){
+  return true}
+});
 
-  for(let i = 0; i < arr2.length; i++){
-    let item1 = arr2[i];
-    let notFound = true;
-    for(let j = 0; j < arr1.length; j++){
-      let item2 = arr1[j];
-
-      if (item1 === item2){
-        notFound = false;
-      }
-    }
-    if(notFound === true) {
-      newArr.push(item1);
-    }
-  }
-
-  return newArr;
+const diff2 = arr2.filter(function(num){
+if(!arr1.includes(num)){
+  return true;
+}
+});
+return diff1.concat(diff2);
 }
 
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
